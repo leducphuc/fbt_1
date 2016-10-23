@@ -1,0 +1,4 @@
+<%= form_for [@commentable, @comment] do |f| %>
+  <%= f.text_area :body, placeholder: t("comment.add_a_reply") %>
+  <%= f.submit t("comment.reply") %>
+<% end %>

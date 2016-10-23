@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  skip_filter :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: :show
 
   before_action :load_places, only: [:new, :edit]
   before_action(except: [:new, :create, :index]) {find_object "review", "id"}
@@ -9,11 +9,13 @@ class ReviewsController < ApplicationController
     if @notification
       @notification.update_attributes seen: true;
     end
+    @comment = Comment.new
   end
 
   def new
     @review = current_user.reviews.build
-  end 
+  end
+
   def create
     @review = current_user.reviews.build review_params
     if @review.save

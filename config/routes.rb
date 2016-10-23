@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
-  resources :reviews
+  resources :tours do
+    resources :comments
+  end
+
+  resources :reviews do
+    resources :comments
+  end
+
+  resources :comments do
+    resources :comments
+  end
   resources :categories, only: :show
   ActiveAdmin.routes self
   get "/static_pages/*page", to: "static_pages#show"

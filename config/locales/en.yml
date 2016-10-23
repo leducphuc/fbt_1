@@ -75,6 +75,18 @@ en:
   tour:
     not_found: "tour not found"
     price: "Price "
+  comment:
+    title: "Comments"
+    create_error: "content can't be blank"
+    updated_error: "comment has not been updated!"
+    destroyed_success: "Comment destroyed!"
+    destroyed_error: "Comment has not been destroyed"
+    add_a_comment: "Add a comment"
+    add_a_reply: "Add a repty"
+    add_comment: "Add comment"
+    reply: "Reply"
+    ago: " ago"
+    not_axist: "comment not axist"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

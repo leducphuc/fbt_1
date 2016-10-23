@@ -20,3 +20,23 @@
     </div><br>
   <%= @review.content.html_safe %>
 </div>
+
+<div style = "margin-left: 20%">
+  <h3><%= t "comment.title" %></h3>
+  <div class="row">
+    <div class="col-md-10">
+      <% if policy(@comment).create? %>
+        <%= simple_form_for [@review, @comment] do |f| %>
+          <%= f.text_area :body, placeholder: t("comment.add_a_comment") %><br>
+          <%= f.submit t ("comment.add_comment") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div><br>
+
+  <div id="comments">
+    <%= render partial: "comments/comment",
+      collection: @review.comments.order(created_at: :desc) %>
+  </div>
+</div>
+

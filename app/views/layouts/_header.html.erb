@@ -79,7 +79,7 @@
 </nav>
 <div id="notificationContainer">
   <div id="notificationsBody">
-    <% if current_user %>
+    <% if current_user && @activities %>
       <% @activities.each do |f| %>
         <%= render "activities/notification", f:f %>
       <% end %>

@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",        limit: 65535
     t.integer  "amount"
+    t.integer  "classify",                     default: 0
     t.integer  "booking_id"
     t.datetime "purchased_at"
     t.string   "transaction_id"
@@ -160,6 +161,7 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.integer  "discount_id"
     t.integer  "place_id"
     t.integer  "category_id"
+    t.string   "image"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["category_id"], name: "index_tours_on_category_id", using: :btree

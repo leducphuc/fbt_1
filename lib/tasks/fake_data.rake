@@ -29,5 +29,10 @@ namespace :db do
         Rating.create user:user, tour: tour, rate: rate
       end
     end
+
+    task fake_category: :environment do
+      Category.destroy_all
+      Category.create cover:"http://i.imgur.com/Zx93nIR.jpg?1"
+    end
   end
 end

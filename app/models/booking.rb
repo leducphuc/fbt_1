@@ -9,6 +9,7 @@ class Booking < ApplicationRecord
   enum status: [:init, :pending, :accepted, :ignored, :canceled]
 
   before_create :apply_discount, unless: :discount
+  after_commit :send_booking_email, on: :create
 
   validate :start_date_validate, on: :create
 
@@ -29,5 +30,9 @@ class Booking < ApplicationRecord
     if start_date < Date.current
       errors.add :start_date, I18n.t("model_validate.start_date")
     end
+  end
+
+  def send_booking_email
+    BookingWorker.perform_async self.id
   end
 end

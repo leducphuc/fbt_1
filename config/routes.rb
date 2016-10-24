@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
   mount Ckeditor::Engine => "/ckeditor"
   resources :reviews
   resources :categories, only: :show
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
     resources :bookings 
     post "bookings/:id" => "bookings#show"
   end
+  mount Sidekiq::Web, at: "/sidekiq"
 end

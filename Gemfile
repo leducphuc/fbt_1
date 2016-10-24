@@ -23,6 +23,10 @@ gem "whenever", require: false
 gem "figaro"
 gem "config"
 gem "activeadmin_addons"
+gem "letter_opener"
+gem "launchy"
+gem "sidekiq"
+gem "redis-rails"
 
 group :development, :test do
   gem "pry-rails"

@@ -4,13 +4,17 @@
     <% @tours.each do |tour|%>
       <div class="item col-md-3">
         <div class="thumbnail">
-          <%= link_to tour_path tour do %><%= image_tag "1.jpg" %><% end %>
+          <%= link_to tour_path tour do %><%= image_tag tour.image %><% end %>
           <div class="caption">
-            <h4 class="group inner list-group-item-heading">
-              <%= tour.name %>
-            </h4>
+            <h3 class="group inner list-group-item-heading">
+              <%= link_to tour.name, tour_path(tour) %>
+            </h3>
+            <%= rating_for tour, "quality", disable_after_rate: true,
+              enable_half: true %>
             <p class="group inner list-group-item-text">
-              <%= tour.description.html_safe %>
+              <div id="edited_text">
+                <%= tour.description.html_safe %>
+              </div>
             </p>
             <div class="row">
               <div class="col-md-6">

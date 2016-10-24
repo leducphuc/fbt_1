@@ -8,7 +8,6 @@ class User < ApplicationRecord
   has_many :activities, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :ratings, dependent: :destroy
 
   class << self
     def from_omniauth access_token
@@ -23,4 +22,6 @@ class User < ApplicationRecord
       user
     end
   end
+
+  ratyrate_rater
 end

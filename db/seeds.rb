@@ -2,6 +2,7 @@ User.create name: "admin",is_admin: true, email: "admin@admin.com",
   password: "password"
 
 User.create name: "normal", email: "normal@email.com", password: "password"
+Tour.create name: "Tour1", duration: "3", description: "description1"
 
 40.times do |n|
   name = "user#{n}"

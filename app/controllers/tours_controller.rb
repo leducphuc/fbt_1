@@ -7,6 +7,6 @@ class ToursController < ApplicationController
   end
 
   def show
-    @booking = @tour.bookings.build 
+    @booking = @tour.bookings.build
   end
 end

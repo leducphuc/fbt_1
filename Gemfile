@@ -22,6 +22,7 @@ gem "omniauth-facebook"
 gem "whenever", require: false
 gem "figaro"
 gem "config"
+gem "ratyrate"
 
 group :development, :test do
   gem "pry-rails"

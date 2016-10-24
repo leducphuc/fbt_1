@@ -1,5 +1,6 @@
 ActiveAdmin.register Tour do
-  permit_params :name, :duration, :price, :place_id, :category_id, :description
+  permit_params :name, :duration, :price, :place_id, :category_id,
+    :description, :image
 
   index do
     selectable_column

@@ -27,6 +27,7 @@ gem "kaminari"
 gem "bootstrap-kaminari-views"
 gem "font-awesome-rails"
 gem "ransack"
+gem "ratyrate"
 
 group :development, :test do
   gem "pry-rails"

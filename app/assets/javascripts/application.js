@@ -16,6 +16,8 @@
 //= require bootstrap-sprockets
 //= require ckeditor/init
 //= require_tree .
+//= require jquery.raty
+//= require ratyrate
 
 $(document).ready(function() {
   $('.dropdown-toggle').dropdown();
@@ -67,5 +69,22 @@ function times_out() {
   showNext();
 }
 times_out();
+});
 
+//truncate
+function shorten(text, maxLength, delimiter, overflow) {
+  delimiter = delimiter || "…";
+  overflow = overflow || false;
+  var ret = text;
+  if (ret.length > maxLength) {
+    var breakpoint = overflow ? maxLength + ret.substr(maxLength).indexOf(" ") : ret.substr(0, maxLength).lastIndexOf(" ");
+    ret = ret.substr(0, breakpoint) + delimiter;
+  }
+  return ret;
+}
 
+$(document).ready(function() {
+  var $editedText = $("#edited_text");
+  var text = $editedText.text();
+  $editedText.text(shorten(text, 200, "...", false));
+});

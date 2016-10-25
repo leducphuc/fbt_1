@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :categories, only: :show
+  resources :tours, only: :show
+  post "/rate" => "rater#create", :as => "rate"
   ActiveAdmin.routes self
   get "/static_pages/*page", to: "static_pages#show"
   root "static_pages#home"

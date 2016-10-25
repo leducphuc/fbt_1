@@ -1,11 +1,11 @@
 ActiveAdmin.register Tour do
-  permit_params :name, :duration, :price, :place_id, :category_id, :description
+  permit_params :name, :duration, :price, :place_id, :category_id, :description, :image
   includes :category, :place, :discount
   filter :name_cont
   filter :place_name_cont, as: :string
   filter :category, as: :select
   filter :discount, as: :select
-  
+
   index do
     selectable_column
     column :id

@@ -2,26 +2,29 @@
 <div class="row">
   <div class="col-md-9">
     <div class="well well-sm">
-      <h2><%= @tour.name %><h2>
-      <p><%= @tour.description.html_safe %></p>
+      <h2><%= @tour.name %></h2>
+      <h3><%= @tour.description.html_safe %></h3>
     </div>
   </div>
   <div class="col-md-3">
     <div class="well well-sm">
-      <h4><%= t"tour.price" %><%= @tour.price %><%= t :money %></h4>
-      <h4><%= @tour.duration %><%= t :day %></h4>
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="glyphicon glyphicon-euro"><%= @tour.price %>
+          <%= t :money %></h3>
+        </div>
+        <div class="col-md-6">
+          <h3 class="glyphicon glyphicon-calendar"><%= @tour.duration %>
+          <%= t :day %></h3>
+        </div>
+      </div>
     </div>
     <% if policy(@booking).new? %>
-    <div>
-      <%= render "bookings/new" %>
-    </div>
-  <% end %>
+      <div>
+        <%= render "bookings/new" %>
+      </div>
+    <% end %>
   </div>
-  <% if policy(@booking).new? %>
-    <div>
-      <%= render "bookings/new" %>
-    </div>
-  <% end %>
 </div>
 
 <div style = "margin-left: 20%">
@@ -40,3 +43,9 @@
   <%= render partial: "comments/comment",
     collection: @tour.comments.order(created_at: :desc) %>
 </div>
+<%= rating_for @tour, "quality", disable_after_rate: true,
+  enable_half: true %>
+<% if @tour.rates("quality").count > 0 %>
+<%= t "rate.rating" %><%= @tour.average("quality").avg %><br>
+<%= t "rate.from" %><%= @tour.rates("quality").count %><%= t "rate.votes" %>
+<% end %>

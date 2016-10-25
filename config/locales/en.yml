@@ -71,7 +71,7 @@ en:
     destroyed_success: "Review destroyed!"
     destroyed_error: "Review has not been destroyed"
   not_authorized: "You are not authorized to perform this action."
-  money: " $"
+  money: "$"
   booking:
     customer: "Customer: "
     tour: "Tour"
@@ -83,7 +83,7 @@ en:
     not_found: Booking Not Fond
     created: Booking Has Been Created
     created_error: Booking Has Not Bean Created
-  day: " Days"
+  day: "Days"
   category:
     not_found: "category not found"
   tour:
@@ -105,6 +105,10 @@ en:
     reply: "Reply"
     ago: " ago"
     not_axist: "comment not axist"
+  rate:
+    rating: "Rating: "
+    from: "From "
+    votes: " votes"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

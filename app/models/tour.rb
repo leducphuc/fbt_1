@@ -9,4 +9,6 @@ class Tour < ApplicationRecord
 
   validates :name, presence: true, length: {minimum: 6}
   validates :description, presence: true
+
+  ratyrate_rateable "quality"
 end

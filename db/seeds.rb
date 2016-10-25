@@ -12,3 +12,24 @@ Tour.create name: "Tour1", duration: "3", description: "description1"
   User.create name: name, email: email, password: password
 end
 
+Place.create name: "Sa Pa",
+  url_image: "http://i.imgur.com/8uOnyCg.jpg",
+  description: "This is Da Nang"
+Place.create name: "Moc Chau",
+  url_image: "http://i.imgur.com/z5WmdZR.jpg",
+  description: "This is Da Nang"
+Place.create name: "Ly Son",
+  url_image: "http://i.imgur.com/gMQP6K6.jpg",
+  description: "This is Da Nang"
+Place.create name: "Ha Long",
+  url_image: "http://i.imgur.com/sNJSrQv.jpg",
+  description: "This is Da Nang"
+Place.create name: "Ba Vi",
+  url_image: "http://i.imgur.com/TBfgEWd.jpg",
+  description: "This is Da Nang"
+Place.create name: "Hue",
+  url_image: "http://i.imgur.com/p7oFjhV.jpg",
+  description: "This is Da Nang"
+Place.create name: "Nha Trang",
+  url_image: "http://i.imgur.com/07Iz3jH.jpg",
+  description: "This is Da Nang"

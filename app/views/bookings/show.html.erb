@@ -35,12 +35,15 @@
           </tr>
         </tbody>
       </table>
-      <%= link_to tour_booking_path(@tour, @booking,
-        user_payment: "user_payment"), method: :patch do %>
-        <button type="button"
-          class="btn btn-success btn-lg btn-block">
-          <%= t("booking.transaction") %>
-        </button>
+
+      <% if @booking.init? %>
+        <%= link_to tour_booking_path(@tour, @booking,
+                user_payment: "user_payment"), method: :patch do %>
+          <button type="button"
+            class="btn btn-success btn-lg btn-block">
+            <%= t("booking.transaction") %>
+          </button>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -26,4 +26,12 @@ class BookingPolicy < ApplicationPolicy
   def cancel?
     is_owner? && record.init?
   end
+
+  def ignore_all?
+    user.try :is_admin? && record.pending?
+  end
+
+  def accept_all?
+    ignore_all
+  end
 end

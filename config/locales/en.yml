@@ -79,6 +79,12 @@ en:
     start_date: "Start date need to greater than now"
     end_date_start: "End date mus be greate than start date"
 
+  email_subject:
+    accepted: "Your booking has been accepted!"
+    ignored: "Your booking has been ignored!"
+    pending: "Your booking are pending"
+    admin: "A booking is pending now"
+
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

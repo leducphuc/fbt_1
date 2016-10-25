@@ -11,7 +11,7 @@ class Booking < ApplicationRecord
   before_create :apply_discount, unless: :discount
   after_commit :send_booking_email, on: :create
 
-  validate :start_date_validate, on: :create
+  validate :start_date_validate, on: :update
 
   private
   def apply_discount
@@ -34,5 +34,12 @@ class Booking < ApplicationRecord
 
   def send_booking_email
     BookingWorker.perform_async self.id
+    if pending?
+      #do pending
+    elsif accepted?
+      #do accepted
+    elsif canceled
+      #do canceled
+    end
   end
 end

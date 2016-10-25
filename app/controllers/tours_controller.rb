@@ -3,10 +3,20 @@ class ToursController < ApplicationController
   before_action(only: :show) {find_object "tour", "id"}
 
   def index
-    @tours = Tour.all
+    q = params[:search]
+    if q
+      @tours = Tour.search(name_or_price_cont: q).result
+    else
+      @tours = Tour.all
+    end
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def show
-    @booking = @tour.bookings.build 
+    @comment = Comment.new
+    @booking = @tour.bookings.build
   end
 end

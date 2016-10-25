@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :authenticate_user!
-  before_action :load_place, only: :home
+  skip_filter :authenticate_user!
+  before_action :load_place_and_review, only: :home
 
   def show
     if valid_page?
@@ -16,8 +16,10 @@ class StaticPagesController < ApplicationController
       .new Rails.root + "app/views/static_pages/#{params[:page]}.html.erb"
   end
 
-  def load_place
+  def load_place_and_review
     @places = Place.all.order(viewer: :desc).
       limit(Settings.limit_image_view)
+    @reviews = Review.all.order(number: :desc).
+      limit(6)
   end
 end

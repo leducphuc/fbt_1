@@ -11,10 +11,32 @@
       <h4><%= t"tour.price" %><%= @tour.price %><%= t :money %></h4>
       <h4><%= @tour.duration %><%= t :day %></h4>
     </div>
+    <% if policy(@booking).new? %>
+    <div>
+      <%= render "bookings/new" %>
+    </div>
+  <% end %>
   </div>
   <% if policy(@booking).new? %>
     <div>
       <%= render "bookings/new" %>
     </div>
   <% end %>
+</div>
+
+<div style = "margin-left: 20%">
+  <h3><%= t "comment.title" %></h3>
+  <div class="row">
+    <div class="col-md-10">
+      <% if policy(@comment).create? %>
+        <%= form_for [@tour, @comment] do |f| %>
+          <%= f.text_area :body, placeholder: t("comment.add_a_comment") %><br>
+          <%= f.submit t ("comment.add_comment") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div><br>
+
+  <%= render partial: "comments/comment",
+    collection: @tour.comments.order(created_at: :desc) %>
 </div>

@@ -62,8 +62,10 @@ function showNext(){
 }
 
 var myTimer;
-
-$(document).ready(function() {
-  myTimer = setTimeout("showNext()", 3000);
+function times_out() {
+  myTimer = setTimeout('showNext()', 3000);
   showNext();
-});
+}
+times_out();
+
+

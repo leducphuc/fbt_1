@@ -5,7 +5,7 @@ ActiveAdmin.register Tour do
   filter :place_name_cont, as: :string
   filter :category, as: :select
   filter :discount, as: :select
-
+  
   index do
     selectable_column
     column :id
@@ -28,9 +28,6 @@ ActiveAdmin.register Tour do
     div do
       tour.description.html_safe
     end
-    div do
-      image_tag tour.image
-    end
   end
 
   form do |f|
@@ -42,7 +39,6 @@ ActiveAdmin.register Tour do
       f.input :price
       f.input :duration
       f.input :description, as: :ckeditor
-      f.input :image, as: :url
     end
     f.actions
   end

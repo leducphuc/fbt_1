@@ -32,6 +32,15 @@ en:
     notification:
       see_all: "See All"
       count_notifi: "Notifications (%{count_activity})"
+    menu:
+      north: "Miền Bắc"
+      north-south: "Miền Trung"
+      south: "Miền Nam"
+      hanoi: "Hà Nội"
+      halong: "Hạ Long"
+      hue: "Huế"
+      nhatrang: "Nha Trang"
+      danang: "Đà Nẵng"
   user_resources:
     edit: Edit Profile
     minimum_password: (%{minimum_length} characters minimum)
@@ -64,7 +73,12 @@ en:
   not_authorized: "You are not authorized to perform this action."
   money: " $"
   booking:
+    customer: "Customer: "
+    tour: "Tour"
+    price: "Price"
+    start: "Start date"
     booking: Booking
+    payment: Payment
     transaction: Transaction
     not_found: Booking Not Fond
     created: Booking Has Been Created
@@ -79,6 +93,18 @@ en:
     start_date: "Start date need to greater than now"
     end_date_start: "End date mus be greate than start date"
 
+  comment:
+    title: "Comments"
+    create_error: "content can't be blank"
+    updated_error: "comment has not been updated!"
+    destroyed_success: "Comment destroyed!"
+    destroyed_error: "Comment has not been destroyed"
+    add_a_comment: "Add a comment"
+    add_a_reply: "Add a repty"
+    add_comment: "Add comment"
+    reply: "Reply"
+    ago: " ago"
+    not_axist: "comment not axist"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -294,3 +320,5 @@ en:
       block: "List"
       grid: "Grid"
       blog: "Blog"
+  view_tour:
+    price: "Price:"

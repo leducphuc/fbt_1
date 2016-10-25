@@ -75,13 +75,16 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",           limit: 65535
-    t.integer  "parent_comment_id"
+    t.text     "body",             limit: 65535
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
     t.integer  "user_id"
     t.integer  "review_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "tour_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["review_id"], name: "index_comments_on_review_id", using: :btree
+    t.index ["tour_id"], name: "index_comments_on_tour_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
@@ -146,8 +149,9 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.integer  "user_id"
     t.integer  "place_id"
     t.string   "image"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "number",                   default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.index ["place_id"], name: "index_reviews_on_place_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
@@ -186,6 +190,7 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   add_foreign_key "bookings", "tours"
   add_foreign_key "bookings", "users"
   add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "tours"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "users"
   add_foreign_key "payments", "bookings"

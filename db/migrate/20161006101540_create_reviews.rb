@@ -6,6 +6,7 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.references :place, foreign_key: true
       t.string :image
+      t.integer :number,default: 0
 
       t.timestamps
     end

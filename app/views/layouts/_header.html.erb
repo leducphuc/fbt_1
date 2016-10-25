@@ -7,6 +7,19 @@
       </button>
       <%= link_to t(".title"), root_path, class: "navbar-brand" %>
     </div>
+    <%= form_tag search_path, method: :get,
+                 class: "navbar-form navbar-left", id: "livesearch_form" do %>
+        <div class="form-group dropdown">
+          <%= text_field_tag :search, params[:search],
+             class: "form-control dropdown-toggle",
+             placeholder: "Search...",
+             "data-toggle": "dropdown", "aria-hidden": :true,
+             autocomplete: :off, required: true, id: "livesearch_input" %>
+          <ul class="dropdown-menu">
+            <div id="livesearch_dom"></div>
+          </ul>
+        </div>
+    <% end %>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

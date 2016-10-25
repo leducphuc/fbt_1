@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
 
   enum status: [:init, :pending, :accepted, :ignored, :canceled]
 
-  before_create :apply_discount, unless: :discount
+  before_create :apply_discount
 
   validate :start_date_validate, on: :create
 
@@ -18,10 +18,11 @@ class Booking < ApplicationRecord
       if tour.discount && tour.discount.active?
         discount = tour.discount
         total_price = tour.price - tour.price * discount
-        discount_id = discount.id
+        write_attribute :discount_id, discount.id
       else
         total_price = tour.price
       end
+      write_attribute :total_price, total_price
     end
   end
 

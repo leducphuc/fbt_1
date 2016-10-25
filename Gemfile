@@ -23,6 +23,10 @@ gem "whenever", require: false
 gem "figaro"
 gem "config"
 gem "activeadmin_addons"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
+gem "font-awesome-rails"
+gem "ransack"
 
 group :development, :test do
   gem "pry-rails"

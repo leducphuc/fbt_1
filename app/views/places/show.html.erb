@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row" >
+    <div class="col-md-12">
+      <div id="carousel-example-generic"
+        class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <div>
+              <center>
+                <%= image_tag "#{@place.url_image}",
+                  size: Settings.size_pic_pla %>
+              </center>
+            </div>
+            <div class="carousel-caption">
+              <h2 class="color-text-pic-pla">
+                <%= @place.name %>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="div-space"></div>
+  <div class="div-show-tour">
+    <% @tours.each do |f| %>
+      <%= render "view_tour", f: f %>
+    <% end %>
+  </div>
+  <div class="div-paginate-show-tour">
+    <%= paginate @tours, theme: "twitter-bootstrap-3" %>
+  </div>
+</div>

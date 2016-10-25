@@ -1,0 +1,17 @@
+<%= link_to review_path(f) do %>
+<div style="width: 49%; float: left;height: 145px">
+  <div style="margin: 20px; background-color: ghostwhite; border: double thin" >
+  <div class="review"><h4><%= f.title %></h4></div>
+  <div class="row">
+    <div class="col-md-8">
+      <h6>
+      <li>
+        <%= t :posted %><%= f.created_at.strftime t "review.time" %>
+        <%= t :by %><%= f.user.name %>
+      </li>
+      </h6>
+    </div>
+  </div><br>
+</div>
+  </div>
+<% end %>

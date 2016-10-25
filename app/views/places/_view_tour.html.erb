@@ -1,0 +1,26 @@
+<div>
+  <div class="col-md-4 text-center col-sm-6 col-xs-6" >
+    <div class="thumbnail product-box">
+      <div class="caption">
+        <h3><%= f.name %></h3>
+        <p>
+          <%= t :price %>
+          <strong><%= f.price %></strong>
+          <%= t :money %>
+        </p>
+        <p>
+          <strong><%= f.duration %></strong>
+          <%= t :day %>
+        </p>
+        <div class="div-description">
+          <%= f.description.html_safe %>
+        </div>
+        <%= link_to "#" do %>
+          <p class="btn btn-success" role="button">
+            <%= t :booking_tour %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

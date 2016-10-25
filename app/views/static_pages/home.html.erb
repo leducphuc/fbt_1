@@ -3,7 +3,7 @@
   <div id="body">
     <div id="bigPic">
       <% @places.each do |f| %>
-        <%= link_to "" do %>
+        <%= link_to place_path(f) do %>
           <%= image_tag "#{f.url_image}",
             size: Settings.size_big_pic %>
         <% end %>
@@ -12,5 +12,58 @@
   </div>
   <div class="clearfix"></div>
   <div id="push"></div>
+</div>
+<div id="menu">
+  <div class="div-float-menu">
+    <ul>
+      <li>
+        <%= t "static_pages.menu.north" %>
+        <ul class="sub-menu">
+          <li>
+            <%= link_to place_path 1 do %>
+              <%= t "static_pages.menu.hanoi" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to place_path 7 do %>
+              <%= t "static_pages.menu.halong" %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <%= t "static_pages.menu.north-south" %>
+        <ul class="sub-menu">
+          <li>
+            <%= link_to place_path 9 do %>
+              <%= t "static_pages.menu.hue" %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <%= t "static_pages.menu.south" %>
+        <ul class="sub-menu">
+          <li>
+            <%= link_to place_path 10 do %>
+              <%= t "static_pages.menu.nhatrang" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to place_path 2 do %>
+              <%= t "static_pages.menu.danang" %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<div style="width:100%; height: 485px">
+  <div style="width: 60%;height: 50px; margin-left: 20%">
+  </div>
+  <% @reviews.each do |f| %>
+      <%= render "reviews/reviews", f: f %>
+  <% end %>
 </div>
 <div id="footer"></div>

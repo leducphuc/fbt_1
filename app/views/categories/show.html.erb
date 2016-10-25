@@ -4,7 +4,9 @@
     <% @tours.each do |tour|%>
       <div class="item col-md-3">
         <div class="thumbnail">
-          <%= link_to tour_path tour do %><%= image_tag tour.image %><% end %>
+          <% if tour.image %>
+            <%= link_to tour_path tour do %><%= image_tag tour.image %><% end %>
+          <% end %>
           <div class="caption">
             <h3 class="group inner list-group-item-heading">
               <%= link_to tour.name, tour_path(tour) %>

@@ -39,6 +39,7 @@ ActiveAdmin.register Tour do
       f.input :price
       f.input :duration
       f.input :description, as: :ckeditor
+      f.input :image, as: :url
     end
     f.actions
   end

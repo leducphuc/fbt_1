@@ -69,7 +69,6 @@ function times_out() {
   showNext();
 }
 times_out();
-});
 
 //truncate
 function shorten(text, maxLength, delimiter, overflow) {

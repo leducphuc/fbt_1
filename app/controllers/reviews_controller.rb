@@ -53,6 +53,16 @@ class ReviewsController < ApplicationController
     redirect_to root_url
   end
 
+  def upvote
+    @review.upvote_from current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @review.downvote_from current_user
+    redirect_to :back
+  end
+
   private
   def review_params
     params.require(:review).permit :title, :content, :place_id

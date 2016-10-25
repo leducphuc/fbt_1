@@ -23,4 +23,6 @@ class User < ApplicationRecord
       user
     end
   end
+
+  acts_as_voter
 end

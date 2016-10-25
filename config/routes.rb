@@ -6,10 +6,18 @@ Rails.application.routes.draw do
 
   resources :reviews do
     resources :comments
+    member do
+      put "like" => "reviews#upvote"
+      put "unlike" => "reviews#downvote"
+    end
   end
 
   resources :comments do
     resources :comments
+    member do
+      put "like" => "reviews#upvote"
+      put "unlike" => "reviews#downvote"
+    end
   end
   resources :categories, only: :show
   ActiveAdmin.routes self
@@ -19,7 +27,7 @@ Rails.application.routes.draw do
     controllers: {omniauth_callbacks: :"omniauth_callbacks#create" }
 
   resources :tours, only: [:index, :show] do
-    resources :bookings 
+    resources :bookings
     post "bookings/:id" => "bookings#show"
   end
 end

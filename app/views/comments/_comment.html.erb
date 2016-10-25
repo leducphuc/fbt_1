@@ -1,25 +1,4 @@
 <div class="row">
-<<<<<<< HEAD
-    <div class="col-md-1">
-      <div class="thumbnail">
-        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-      </div>
-    </div>
-    <div class="col-md-7">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <strong><%= comment.user.name %></strong> <span class="text-muted">
-            <%= time_ago_in_words(comment.created_at) %></span>
-        </div>
-      <div class="panel-body"><%= comment.body %></div>
-
-      <div class="row">
-        <% unless comment.commentable_type == "Comment" %>
-          <%= link_to t("comment.reply"), new_comment_comment_path(comment),
-            class: "glyphicon glyphicon-share-alt",
-            id: "new_link", remote: true %>
-        <% end %>
-=======
   <div class="col-md-1">
     <div class="thumbnail">
       <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
@@ -34,7 +13,6 @@
       <div class="panel-body"><%= comment.body %></div>
 
       <div class="row">
->>>>>>> e8cb84a3dbbadc664c8f9f805215332ea4c3f575
         <div class="col-md-3 col-md-offset-9">
           <% if policy(comment).destroy? %>
             <% if comment.commentable_type == "Review" %>
@@ -54,12 +32,10 @@
             <% end %>
           <% end %>
         </div>
-<<<<<<< HEAD
       </div>
       </div>
     </div>
   </div>
-=======
         <% unless comment.commentable_type == "Comment" %>
           <%= form_for [comment, @comment] do |f| %>
             <%= f.text_area :body, placeholder: t("comment.add_a_reply") %>
@@ -70,7 +46,6 @@
     </div>
   </div>
 </div>
->>>>>>> e8cb84a3dbbadc664c8f9f805215332ea4c3f575
 
 <ul>
   <%= render partial: "comments/comment", collection: comment.comments %>

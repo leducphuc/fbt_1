@@ -33,3 +33,5 @@ Place.create name: "Hue",
 Place.create name: "Nha Trang",
   url_image: "http://i.imgur.com/07Iz3jH.jpg",
   description: "This is Da Nang"
+Category.create name: "Du lich bien", cover: "http://i.imgur.com/3sUOjfH.jpg"
+Category.create name: "Du lich sinh thai", cover: "http://i.imgur.com/AkLaFYY.jpg"

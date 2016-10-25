@@ -1,6 +1,8 @@
 ActiveAdmin.register Payment do
   scope :normal
   scope :daily
+  
+  filter :booking
 
   index do
     id_column

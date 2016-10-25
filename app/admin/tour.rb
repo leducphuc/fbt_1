@@ -1,18 +1,18 @@
 ActiveAdmin.register Tour do
   permit_params :name, :duration, :price, :place_id, :category_id, :description, :image
   includes :category, :place, :discount
-  filter :name_cont
-  filter :place_name_cont, as: :string
+  filter :name, as: :select
+  filter :place
   filter :category, as: :select
   filter :discount, as: :select
 
   index do
     selectable_column
     column :id
-    column :name
-    column :price do |tour|
+    column :name do |tour|
       link_to tour.name, admin_tour_path(tour)
     end
+    column :price
     column :discount
     column :category
     column :place

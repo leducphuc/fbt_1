@@ -92,7 +92,6 @@ en:
   model_validate:
     start_date: "Start date need to greater than now"
     end_date_start: "End date mus be greate than start date"
-
   comment:
     title: "Comments"
     create_error: "content can't be blank"

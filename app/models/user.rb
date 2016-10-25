@@ -24,4 +24,5 @@ class User < ApplicationRecord
   end
 
   ratyrate_rater
+  acts_as_voter
 end

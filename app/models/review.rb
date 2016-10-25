@@ -10,4 +10,6 @@ class Review < ApplicationRecord
 
   validates :title, presence: true, length: {minimum: 6}
   validates :content, presence: true
+
+  acts_as_votable
 end

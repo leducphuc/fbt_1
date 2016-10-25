@@ -28,6 +28,7 @@ gem "bootstrap-kaminari-views"
 gem "font-awesome-rails"
 gem "ransack"
 gem "ratyrate"
+gem "acts_as_votable"
 
 group :development, :test do
   gem "pry-rails"

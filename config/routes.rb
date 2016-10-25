@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :reviews do
     resources :comments
+    member do
+      put "like" => "reviews#upvote"
+      put "unlike" => "reviews#downvote"
+    end
   end
 
   resources :comments do

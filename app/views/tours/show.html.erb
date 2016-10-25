@@ -49,3 +49,20 @@
 <%= t "rate.rating" %><%= @tour.average("quality").avg %><br>
 <%= t "rate.from" %><%= @tour.rates("quality").count %><%= t "rate.votes" %>
 <% end %>
+
+<div style = "margin-left: 20%">
+  <h3><%= t "comment.title" %></h3>
+  <div class="row">
+    <div class="col-md-10">
+      <% if policy(@comment).create? %>
+        <%= form_for [@tour, @comment] do |f| %>
+          <%= f.text_area :body, placeholder: t("comment.add_a_comment") %><br>
+          <%= f.submit t ("comment.add_comment") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div><br>
+
+  <%= render partial: "comments/comment",
+    collection: @tour.comments.order(created_at: :desc) %>
+</div>

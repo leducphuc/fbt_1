@@ -21,6 +21,21 @@
   <%= @review.content.html_safe %>
 </div>
 
+  <%= link_to like_review_path(@review), class: "like", method: :put do %>
+    <button type="button" class="btn btn-primary btn-xs" aria-label="Left Align">
+      <span class="glyphicon glyphicon-thumbs-up"
+        aria-hidden="true"></span>
+      <span class="badge"><%= @review.get_upvotes.size %></span>
+    </button>
+  <% end %>
+  <%= link_to unlike_review_path(@review), class: "like", method: :put do %>
+    <button type="button" class="btn btn-primary btn-xs" aria-label="Left Align">
+      <span class="glyphicon glyphicon-thumbs-down"
+        aria-hidden="true"></span>
+      <span class="badge"><%= @review.get_downvotes.size %></span>
+    </button>
+  <% end %>
+
 <div style = "margin-left: 20%">
   <h3><%= t "comment.title" %></h3>
   <div class="row">
@@ -39,4 +54,3 @@
       collection: @review.comments.order(created_at: :desc) %>
   </div>
 </div>
-

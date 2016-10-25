@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_commentable
+  before_action :find_comment, except: [:new, :create]
 
   def new
     @comment = current_user.comments.build
@@ -51,6 +52,14 @@ class CommentsController < ApplicationController
       Review.find_by_id params[:review_id]
     else
       Tour.find_by_id params[:tour_id]
+    end
+  end
+
+  def find_comment
+    if params[:comment_id]
+      @comment = Comment.find_by id: params[:comment_id]
+    else
+      @comment = Comment.find_by id: params[:id]
     end
   end
 end

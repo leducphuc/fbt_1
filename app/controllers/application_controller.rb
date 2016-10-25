@@ -45,4 +45,14 @@ class ApplicationController < ActionController::Base
   def admin_user?
     current_user.is_admin?
   end
+
+  def upvote
+    @review.upvote_from current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @review.downvote_from current_user
+    redirect_to :back
+  end
 end

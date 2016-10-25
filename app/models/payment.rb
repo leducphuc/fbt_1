@@ -6,14 +6,14 @@ class Payment < ApplicationRecord
 
   def paypal_url return_path
     values = {
-      business: ENV["facilitator_paypal"],
-      return: "#{Rails.application.secrets.app_host}#{return_path}",
-      notify_url: "#{Rails.application.secrets.app_host}/update",
+      business: "vuhuutuan262-buyer@gmail.com",
+      return: "https://gentle-reaches-64346.herokuapp.com/#{return_path}",
+      notify_url: "https://gentle-reaches-64346.herokuapp.com/update",
       invoice: id,
       cmd: "_xclick",
       amount: amount,
     }
-    "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" +
+    "https://www.sandbox.paypal.com/cgi-bin/webscr?" +
       values.to_query
   end
 end

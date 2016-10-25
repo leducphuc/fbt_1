@@ -21,3 +21,6 @@ Place.create name: "Ha Long", url_image: "http://i.imgur.com/sNJSrQv.jpg"
 Place.create name: "Ba Vi", url_image: "http://i.imgur.com/TBfgEWd.jpg"
 Place.create name: "Hue", url_image: "http://i.imgur.com/p7oFjhV.jpg"
 Place.create name: "Nha Trang", url_image: "http://i.imgur.com/07Iz3jH.jpg"
+
+Category.create name: "Du lich bien", cover: "http://i.imgur.com/3sUOjfH.jpg"
+Category.create name: "Du lich sinh thai", cover: "http://i.imgur.com/AkLaFYY.jpg"

@@ -6,6 +6,14 @@ class ReviewsController < ApplicationController
   before_action(only: :show) {find_object "activity", "notification_id"}
   before_action :max_number, only: :create
 
+  def index
+    if current_user
+      @reviews = current_user.reviews
+    else
+      @reviews = Review.all
+    end
+  end
+
   def show
     if @notification
       @notification.update_attributes seen: true;

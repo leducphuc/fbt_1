@@ -1,0 +1,20 @@
+<div style = "margin-left: 40%"><h1>My Reviews</h1></div><br>
+<% @reviews.each do |f| %>
+<div class="container">
+<div class="row">
+</div>
+  <ul class="media-list main-list">
+    <li class="media">
+      <a class="pull-left" href="#">
+        <img class="media-object" src="http://placehold.it/150x90" alt="...">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to f.title, review_path(f) %></h4>
+        <p class="by-author"><%= f.place.name %></p>
+        <p class="by-author"><%= f.created_at %></p>
+        <p class="by-author"><%= f.user.name %></p>
+      </div>
+    </li>
+  </ul>
+  </div>
+  <% end %>

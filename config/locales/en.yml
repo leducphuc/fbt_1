@@ -36,11 +36,14 @@ en:
       north: "Miền Bắc"
       north-south: "Miền Trung"
       south: "Miền Nam"
+      style: "Travel styles"
       hanoi: "Hà Nội"
       halong: "Hạ Long"
       hue: "Huế"
       nhatrang: "Nha Trang"
       danang: "Đà Nẵng"
+      bien: "Du lịch biển"
+      sinh_thai: "Du lịch sinh thái"
   user_resources:
     edit: Edit Profile
     minimum_password: (%{minimum_length} characters minimum)
